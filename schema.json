@@ -1,0 +1,80 @@
+{
+  "type": "datasource",
+  "metadata": {},
+  "schema": {
+    "docs": "https://docs.budibase.com",
+    "friendlyName": "Github Issues",
+    "type": "API",
+    "description": "Provides routes to manage Github issues in Budibase",
+    "datasource": {
+      "user": {
+        "type": "string",
+        "required": true,
+        "display": "Github Username"
+      },
+      "pat": {
+        "type": "string",
+        "required": true,
+        "display": "Personal Access Token"
+      },
+      "repo_owner": {
+        "type": "string",
+        "required": true,
+        "display": "Repository Owner"
+      },
+      "repo_name": {
+        "type": "string",
+        "required": true,
+        "display": "Repository Name"
+      }
+    },
+    "query": {
+      "create": {
+        "type": "fields",
+        "fields": {
+          "title": {
+            "display": "Title",
+            "type": "string",
+            "required": true
+          },
+          "body": {
+            "display": "Description of issue",
+            "type": "longForm",
+            "required": true
+          }
+        }
+      },
+      "read": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "display": "Issue Id",
+            "type": "number",
+            "required": false
+          }
+        }
+      },
+      "update": {
+        "type": "json"
+      },
+      "delete": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "type": "string",
+            "required": true
+          }
+        }
+      },
+      "close": {
+        "type": "fields",
+        "fields": {
+          "id": {
+            "type": "string",
+            "required": true
+          }
+        }
+      }
+    }
+  }
+}
